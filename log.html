@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+</head>
+<body>
+  <h2>Login</h2>
+  <form id="loginForm" action="" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <label for="selection">Selection:</label>
+    <select id="selection" name="selection">
+      <option value="BTech">BTech</option>
+      <option value="MSC">MSC</option>
+    </select><br><br>
+    <input type="submit" value="Login">
+  </form>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      var selection = document.getElementById("selection").value;
+
+      // Perform password validation
+      if (username === "admin" && password === "staticpassword") {
+        // Redirect based on selection
+        if (selection === "BTech") {
+          window.location.href = "sho.php";
+        } else if (selection === "MSC") {
+          window.location.href = "mscShow.php";
+        }
+      } else {
+        alert("Invalid password. Please try again.");
+      }
+    });
+  </script>
+</body>
+</html>
